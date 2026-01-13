@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BaliProject version="3.2" title="proyectov5" device="LCMXO2-7000HE-4TG144C" default_implementation="impl1">
+    <Options/>
+    <Implementation title="impl1" dir="impl1" description="impl1" synthesis="lse" default_strategy="Strategy1">
+        <Options/>
+        <Source name="AdderSub16.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="FullAdder.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="KeypadController.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="LCD_Controller.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="MemoriaROM.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="Multiplier16.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="Tragamonedas_Top.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="impl1/impl1.xcf" type="Programming Project File" type_short="Programming">
+            <Options/>
+        </Source>
+        <Source name="proyectov5.lpf" type="Logic Preference" type_short="LPF">
+            <Options/>
+        </Source>
+    </Implementation>
+    <Strategy name="Strategy1" file="proyectov51.sty"/>
+</BaliProject>

@@ -1,0 +1,85 @@
+---------------------------------------------------
+Report for cell Tragamonedas_Top
+   Instance path: Tragamonedas_Top
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	     949.00        100.0
+                                  LUT4	    1427.00        100.0
+                                 IOBUF	         26        100.0
+                                PFUREG	        453        100.0
+                                RIPPLE	        234        100.0
+SUB MODULES
+                                  cell	      count    SLC Usage(%)
+                         MemoriaROM_U0	          1         0.2
+                          Multiplier16	          1         8.1
+                         MemoriaROM_U1	          1         0.3
+                            MemoriaROM	          1         0.4
+                        LCD_Controller	          1        15.5
+                      KeypadController	          1         5.1
+                            AdderSub16	          1         0.5
+---------------------------------------------------
+Report for cell MemoriaROM_U1
+   Instance path: Tragamonedas_Top/ROM_Instance_1
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	       2.83         0.3
+                                  LUT4	       6.00         0.4
+---------------------------------------------------
+Report for cell MemoriaROM_U0
+   Instance path: Tragamonedas_Top/ROM_Instance_2
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	       2.00         0.2
+                                  LUT4	       4.00         0.3
+---------------------------------------------------
+Report for cell LCD_Controller
+   Instance path: Tragamonedas_Top/Inst_LCD
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	     146.75        15.5
+                                  LUT4	     275.00        19.3
+                                PFUREG	         44         9.7
+                                RIPPLE	         10         4.3
+---------------------------------------------------
+Report for cell MemoriaROM
+   Instance path: Tragamonedas_Top/ROM_Instance_3
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	       3.75         0.4
+                                  LUT4	       8.00         0.6
+---------------------------------------------------
+Report for cell AdderSub16
+   Instance path: Tragamonedas_Top/CPU_ADDER
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	       4.83         0.5
+                                  LUT4	       1.00         0.1
+                                RIPPLE	          8         3.4
+SUB MODULES
+                                  cell	      count    SLC Usage(%)
+                             FullAdder	          1         0.5
+---------------------------------------------------
+Report for cell FullAdder
+   Instance path: Tragamonedas_Top/CPU_ADDER/GEN_ADDERS_0..FAx
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	       4.83         0.5
+                                  LUT4	       1.00         0.1
+                                RIPPLE	          8         3.4
+---------------------------------------------------
+Report for cell Multiplier16
+   Instance path: Tragamonedas_Top/CPU_MULT
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	      77.25         8.1
+                                  LUT4	      27.00         1.9
+                                RIPPLE	         64        27.4
+---------------------------------------------------
+Report for cell KeypadController
+   Instance path: Tragamonedas_Top/Inst_Key
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	      48.33         5.1
+                                  LUT4	      78.67         5.5
+                                PFUREG	         32         7.1
+                                RIPPLE	         10         4.3

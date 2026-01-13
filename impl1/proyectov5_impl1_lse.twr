@@ -1,0 +1,487 @@
+--------------------------------------------------------------------------------
+Lattice Synthesis Timing Report, Version  
+Mon Jan 12 23:17:17 2026
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
+
+Report Information
+------------------
+Design:     Tragamonedas_Top
+Constraint file:  
+Report level:    verbose report, limited to 3 items per constraint
+--------------------------------------------------------------------------------
+
+
+
+================================================================================
+Constraint: create_clock -period 5.000000 -name clk0 [get_nets sys_clk]
+            4096 items scored, 4096 timing errors detected.
+--------------------------------------------------------------------------------
+
+
+Error:  The following path violates requirements by 58.852ns
+
+ Logical Details:  Cell type  Pin type       Cell name  (clock net +/-)
+
+   Source:         FD1P3IX    CK             apuesta_i0_i1  (from sys_clk +)
+   Destination:    FD1P3IX    D              delay_r2_target_i0_i3  (to sys_clk +)
+
+   Delay:                  63.692ns  (28.9% logic, 71.1% route), 40 logic levels.
+
+ Constraint Details:
+
+     63.692ns data_path apuesta_i0_i1 to delay_r2_target_i0_i3 violates
+      5.000ns delay constraint less
+      0.160ns L_S requirement (totaling 4.840ns) by 58.852ns
+
+ Path Details: apuesta_i0_i1 to delay_r2_target_i0_i3
+
+   Name    Fanout   Delay (ns)          Pins               Resource(Cell.Net)
+L_CO        ---     0.444             CK to Q              apuesta_i0_i1 (from sys_clk)
+Route         7   e 1.559                                  apuesta[1]
+A1_TO_FCO   ---     0.827           A[2] to COUT           add_450_1
+Route         1   e 0.020                                  n31014
+FCI_TO_FCO  ---     0.157            CIN to COUT           add_450_3
+Route         1   e 0.020                                  n31015
+FCI_TO_FCO  ---     0.157            CIN to COUT           add_450_5
+Route         1   e 0.020                                  n31016
+FCI_TO_FCO  ---     0.157            CIN to COUT           add_450_7
+Route         1   e 0.020                                  n31017
+FCI_TO_FCO  ---     0.157            CIN to COUT           add_450_9
+Route         1   e 0.020                                  n31018
+FCI_TO_FCO  ---     0.157            CIN to COUT           add_450_11
+Route         1   e 0.020                                  n31019
+FCI_TO_F    ---     0.598            CIN to S[2]           add_450_13
+Route        13   e 2.149                                  n150
+LUT4        ---     0.493              B to Z              i1_2_lut_3_lut_adj_138
+Route         7   e 1.502                                  n242_adj_1820
+LUT4        ---     0.493              D to Z              rem_103_i197_3_lut_4_lut_4_lut
+Route         5   e 1.405                                  n289_adj_1821
+LUT4        ---     0.493              D to Z              i2_4_lut_adj_337
+Route        12   e 1.657                                  n301
+LUT4        ---     0.493              C to Z              rem_103_i227_3_lut_4_lut
+Route         5   e 1.405                                  n333_adj_1809
+LUT4        ---     0.493              B to Z              i2_3_lut_adj_358
+Route        11   e 1.632                                  n16696
+LUT4        ---     0.493              C to Z              i17636_2_lut_rep_360_3_lut_4_lut_4_lut
+Route         4   e 1.340                                  n34900
+LUT4        ---     0.493              C to Z              rem_103_i257_3_lut_4_lut
+Route         3   e 1.258                                  n377_adj_1814
+LUT4        ---     0.493              B to Z              i3_4_lut_adj_303
+Route        14   e 1.807                                  n16697
+LUT4        ---     0.493              C to Z              i1_2_lut_rep_343_3_lut_4_lut
+Route         3   e 1.258                                  n34883
+LUT4        ---     0.493              C to Z              i1_2_lut_4_lut_adj_241
+Route         1   e 0.941                                  n6_adj_1828
+LUT4        ---     0.493              D to Z              i4_4_lut
+Route        17   e 1.819                                  n16698
+LUT4        ---     0.493              B to Z              rem_103_i320_3_lut_4_lut
+Route         3   e 1.258                                  n468_adj_1786
+LUT4        ---     0.493              D to Z              i4_4_lut_adj_265
+Route         1   e 0.941                                  n10_adj_1699
+LUT4        ---     0.493              B to Z              i5_3_lut_adj_262
+Route        19   e 1.825                                  n16699
+LUT4        ---     0.493              B to Z              rem_103_i350_3_lut_4_lut
+Route         3   e 1.258                                  n512_adj_1770
+LUT4        ---     0.493              D to Z              i5_4_lut_adj_376
+Route         1   e 0.941                                  n12_adj_1688
+LUT4        ---     0.493              B to Z              i6_4_lut_adj_375
+Route        21   e 1.831                                  n16700
+LUT4        ---     0.493              B to Z              rem_103_i383_3_lut_4_lut
+Route         3   e 1.258                                  n559_adj_1751
+LUT4        ---     0.493              B to Z              i6_4_lut_adj_175
+Route         1   e 0.941                                  n14_adj_1824
+LUT4        ---     0.493              B to Z              i7_4_lut_adj_174
+Route        22   e 1.833                                  n16701
+LUT4        ---     0.493              B to Z              rem_103_i417_3_lut_4_lut
+Route         2   e 1.141                                  n607_adj_1727
+LUT4        ---     0.493              C to Z              i5_3_lut_adj_208
+Route         1   e 0.941                                  n14_adj_1874
+LUT4        ---     0.493              C to Z              i8_4_lut
+Route         1   e 0.941                                  n31731
+LUT4        ---     0.493              B to Z              i1_4_lut_adj_201
+Route        12   e 1.657                                  n617_adj_1720
+LUT4        ---     0.493              C to Z              rem_103_i454_3_lut_rep_312
+Route         3   e 1.258                                  n34852
+LUT4        ---     0.493              B to Z              i18424_2_lut_3_lut
+Route         1   e 0.941                                  n27033
+LUT4        ---     0.493              A to Z              i1_4_lut_adj_199
+Route         1   e 0.941                                  n12_adj_1886
+LUT4        ---     0.493              C to Z              i9_4_lut_adj_197
+Route         1   e 0.941                                  n20_adj_1880
+LUT4        ---     0.493              B to Z              i10_4_lut
+Route         4   e 1.340                                  n662_adj_1715
+LUT4        ---     0.493              B to Z              i22460_2_lut_rep_310
+Route         2   e 1.141                                  n34850
+LUT4        ---     0.493              B to Z              i2373_4_lut_3_lut_4_lut
+Route         2   e 1.141                                  n6
+LUT4        ---     0.493              A to Z              i2_3_lut_adj_235
+Route         1   e 0.941                                  n31521
+                  --------
+                   63.692  (28.9% logic, 71.1% route), 40 logic levels.
+
+
+Error:  The following path violates requirements by 58.852ns
+
+ Logical Details:  Cell type  Pin type       Cell name  (clock net +/-)
+
+   Source:         FD1P3IX    CK             apuesta_i0_i1  (from sys_clk +)
+   Destination:    FD1P3IX    D              delay_r2_target_i0_i3  (to sys_clk +)
+
+   Delay:                  63.692ns  (28.9% logic, 71.1% route), 40 logic levels.
+
+ Constraint Details:
+
+     63.692ns data_path apuesta_i0_i1 to delay_r2_target_i0_i3 violates
+      5.000ns delay constraint less
+      0.160ns L_S requirement (totaling 4.840ns) by 58.852ns
+
+ Path Details: apuesta_i0_i1 to delay_r2_target_i0_i3
+
+   Name    Fanout   Delay (ns)          Pins               Resource(Cell.Net)
+L_CO        ---     0.444             CK to Q              apuesta_i0_i1 (from sys_clk)
+Route         7   e 1.559                                  apuesta[1]
+A1_TO_FCO   ---     0.827           A[2] to COUT           add_450_1
+Route         1   e 0.020                                  n31014
+FCI_TO_FCO  ---     0.157            CIN to COUT           add_450_3
+Route         1   e 0.020                                  n31015
+FCI_TO_FCO  ---     0.157            CIN to COUT           add_450_5
+Route         1   e 0.020                                  n31016
+FCI_TO_FCO  ---     0.157            CIN to COUT           add_450_7
+Route         1   e 0.020                                  n31017
+FCI_TO_FCO  ---     0.157            CIN to COUT           add_450_9
+Route         1   e 0.020                                  n31018
+FCI_TO_FCO  ---     0.157            CIN to COUT           add_450_11
+Route         1   e 0.020                                  n31019
+FCI_TO_F    ---     0.598            CIN to S[2]           add_450_13
+Route        13   e 2.149                                  n150
+LUT4        ---     0.493              B to Z              i1_2_lut_3_lut_adj_138
+Route         7   e 1.502                                  n242_adj_1820
+LUT4        ---     0.493              D to Z              rem_103_i197_3_lut_4_lut_4_lut
+Route         5   e 1.405                                  n289_adj_1821
+LUT4        ---     0.493              D to Z              i2_4_lut_adj_337
+Route        12   e 1.657                                  n301
+LUT4        ---     0.493              C to Z              rem_103_i227_3_lut_4_lut
+Route         5   e 1.405                                  n333_adj_1809
+LUT4        ---     0.493              B to Z              i2_3_lut_adj_358
+Route        11   e 1.632                                  n16696
+LUT4        ---     0.493              C to Z              i17636_2_lut_rep_360_3_lut_4_lut_4_lut
+Route         4   e 1.340                                  n34900
+LUT4        ---     0.493              C to Z              rem_103_i257_3_lut_4_lut
+Route         3   e 1.258                                  n377_adj_1814
+LUT4        ---     0.493              B to Z              i3_4_lut_adj_303
+Route        14   e 1.807                                  n16697
+LUT4        ---     0.493              B to Z              rem_103_i289_3_lut_4_lut
+Route         3   e 1.258                                  n423_adj_1800
+LUT4        ---     0.493              D to Z              i1_2_lut_4_lut_adj_241
+Route         1   e 0.941                                  n6_adj_1828
+LUT4        ---     0.493              D to Z              i4_4_lut
+Route        17   e 1.819                                  n16698
+LUT4        ---     0.493              B to Z              rem_103_i320_3_lut_4_lut
+Route         3   e 1.258                                  n468_adj_1786
+LUT4        ---     0.493              D to Z              i4_4_lut_adj_265
+Route         1   e 0.941                                  n10_adj_1699
+LUT4        ---     0.493              B to Z              i5_3_lut_adj_262
+Route        19   e 1.825                                  n16699
+LUT4        ---     0.493              D to Z              rem_103_i356_3_lut_4_lut_4_lut
+Route         3   e 1.258                                  n518_adj_1764
+LUT4        ---     0.493              A to Z              i5_4_lut_adj_376
+Route         1   e 0.941                                  n12_adj_1688
+LUT4        ---     0.493              B to Z              i6_4_lut_adj_375
+Route        21   e 1.831                                  n16700
+LUT4        ---     0.493              B to Z              rem_103_i383_3_lut_4_lut
+Route         3   e 1.258                                  n559_adj_1751
+LUT4        ---     0.493              B to Z              i6_4_lut_adj_175
+Route         1   e 0.941                                  n14_adj_1824
+LUT4        ---     0.493              B to Z              i7_4_lut_adj_174
+Route        22   e 1.833                                  n16701
+LUT4        ---     0.493              B to Z              rem_103_i413_3_lut_4_lut
+Route         2   e 1.141                                  n603_adj_1731
+LUT4        ---     0.493              B to Z              i5_3_lut_adj_208
+Route         1   e 0.941                                  n14_adj_1874
+LUT4        ---     0.493              C to Z              i8_4_lut
+Route         1   e 0.941                                  n31731
+LUT4        ---     0.493              B to Z              i1_4_lut_adj_201
+Route        12   e 1.657                                  n617_adj_1720
+LUT4        ---     0.493              C to Z              rem_103_i454_3_lut_rep_312
+Route         3   e 1.258                                  n34852
+LUT4        ---     0.493              B to Z              i18424_2_lut_3_lut
+Route         1   e 0.941                                  n27033
+LUT4        ---     0.493              A to Z              i1_4_lut_adj_199
+Route         1   e 0.941                                  n12_adj_1886
+LUT4        ---     0.493              C to Z              i9_4_lut_adj_197
+Route         1   e 0.941                                  n20_adj_1880
+LUT4        ---     0.493              B to Z              i10_4_lut
+Route         4   e 1.340                                  n662_adj_1715
+LUT4        ---     0.493              B to Z              i22460_2_lut_rep_310
+Route         2   e 1.141                                  n34850
+LUT4        ---     0.493              B to Z              i2373_4_lut_3_lut_4_lut
+Route         2   e 1.141                                  n6
+LUT4        ---     0.493              A to Z              i2_3_lut_adj_235
+Route         1   e 0.941                                  n31521
+                  --------
+                   63.692  (28.9% logic, 71.1% route), 40 logic levels.
+
+
+Error:  The following path violates requirements by 58.852ns
+
+ Logical Details:  Cell type  Pin type       Cell name  (clock net +/-)
+
+   Source:         FD1P3IX    CK             apuesta_i0_i1  (from sys_clk +)
+   Destination:    FD1P3IX    D              delay_r2_target_i0_i3  (to sys_clk +)
+
+   Delay:                  63.692ns  (28.9% logic, 71.1% route), 40 logic levels.
+
+ Constraint Details:
+
+     63.692ns data_path apuesta_i0_i1 to delay_r2_target_i0_i3 violates
+      5.000ns delay constraint less
+      0.160ns L_S requirement (totaling 4.840ns) by 58.852ns
+
+ Path Details: apuesta_i0_i1 to delay_r2_target_i0_i3
+
+   Name    Fanout   Delay (ns)          Pins               Resource(Cell.Net)
+L_CO        ---     0.444             CK to Q              apuesta_i0_i1 (from sys_clk)
+Route         7   e 1.559                                  apuesta[1]
+A1_TO_FCO   ---     0.827           A[2] to COUT           add_450_1
+Route         1   e 0.020                                  n31014
+FCI_TO_FCO  ---     0.157            CIN to COUT           add_450_3
+Route         1   e 0.020                                  n31015
+FCI_TO_FCO  ---     0.157            CIN to COUT           add_450_5
+Route         1   e 0.020                                  n31016
+FCI_TO_FCO  ---     0.157            CIN to COUT           add_450_7
+Route         1   e 0.020                                  n31017
+FCI_TO_FCO  ---     0.157            CIN to COUT           add_450_9
+Route         1   e 0.020                                  n31018
+FCI_TO_FCO  ---     0.157            CIN to COUT           add_450_11
+Route         1   e 0.020                                  n31019
+FCI_TO_F    ---     0.598            CIN to S[2]           add_450_13
+Route        13   e 2.149                                  n150
+LUT4        ---     0.493              B to Z              i1_2_lut_3_lut_adj_138
+Route         7   e 1.502                                  n242_adj_1820
+LUT4        ---     0.493              D to Z              rem_103_i197_3_lut_4_lut_4_lut
+Route         5   e 1.405                                  n289_adj_1821
+LUT4        ---     0.493              D to Z              i2_4_lut_adj_337
+Route        12   e 1.657                                  n301
+LUT4        ---     0.493              C to Z              rem_103_i228_3_lut_rep_375_4_lut
+Route         5   e 1.405                                  n34915
+LUT4        ---     0.493              C to Z              i2_3_lut_adj_358
+Route        11   e 1.632                                  n16696
+LUT4        ---     0.493              C to Z              i17636_2_lut_rep_360_3_lut_4_lut_4_lut
+Route         4   e 1.340                                  n34900
+LUT4        ---     0.493              C to Z              rem_103_i257_3_lut_4_lut
+Route         3   e 1.258                                  n377_adj_1814
+LUT4        ---     0.493              B to Z              i3_4_lut_adj_303
+Route        14   e 1.807                                  n16697
+LUT4        ---     0.493              C to Z              i1_2_lut_rep_343_3_lut_4_lut
+Route         3   e 1.258                                  n34883
+LUT4        ---     0.493              C to Z              i1_2_lut_4_lut_adj_241
+Route         1   e 0.941                                  n6_adj_1828
+LUT4        ---     0.493              D to Z              i4_4_lut
+Route        17   e 1.819                                  n16698
+LUT4        ---     0.493              D to Z              rem_103_i324_3_lut_4_lut_4_lut
+Route         3   e 1.258                                  n472_adj_1782
+LUT4        ---     0.493              C to Z              i4_4_lut_adj_265
+Route         1   e 0.941                                  n10_adj_1699
+LUT4        ---     0.493              B to Z              i5_3_lut_adj_262
+Route        19   e 1.825                                  n16699
+LUT4        ---     0.493              B to Z              rem_103_i350_3_lut_4_lut
+Route         3   e 1.258                                  n512_adj_1770
+LUT4        ---     0.493              D to Z              i5_4_lut_adj_376
+Route         1   e 0.941                                  n12_adj_1688
+LUT4        ---     0.493              B to Z              i6_4_lut_adj_375
+Route        21   e 1.831                                  n16700
+LUT4        ---     0.493              B to Z              rem_103_i385_3_lut_4_lut
+Route         3   e 1.258                                  n561_adj_1749
+LUT4        ---     0.493              C to Z              i6_4_lut_adj_175
+Route         1   e 0.941                                  n14_adj_1824
+LUT4        ---     0.493              B to Z              i7_4_lut_adj_174
+Route        22   e 1.833                                  n16701
+LUT4        ---     0.493              B to Z              rem_103_i419_3_lut_4_lut
+Route         2   e 1.141                                  n609_adj_1725
+LUT4        ---     0.493              B to Z              i6_4_lut_adj_204
+Route         1   e 0.941                                  n15_adj_1873
+LUT4        ---     0.493              A to Z              i8_4_lut
+Route         1   e 0.941                                  n31731
+LUT4        ---     0.493              B to Z              i1_4_lut_adj_201
+Route        12   e 1.657                                  n617_adj_1720
+LUT4        ---     0.493              C to Z              rem_103_i454_3_lut_rep_312
+Route         3   e 1.258                                  n34852
+LUT4        ---     0.493              B to Z              i18424_2_lut_3_lut
+Route         1   e 0.941                                  n27033
+LUT4        ---     0.493              A to Z              i1_4_lut_adj_199
+Route         1   e 0.941                                  n12_adj_1886
+LUT4        ---     0.493              C to Z              i9_4_lut_adj_197
+Route         1   e 0.941                                  n20_adj_1880
+LUT4        ---     0.493              B to Z              i10_4_lut
+Route         4   e 1.340                                  n662_adj_1715
+LUT4        ---     0.493              B to Z              i22460_2_lut_rep_310
+Route         2   e 1.141                                  n34850
+LUT4        ---     0.493              B to Z              i2373_4_lut_3_lut_4_lut
+Route         2   e 1.141                                  n6
+LUT4        ---     0.493              A to Z              i2_3_lut_adj_235
+Route         1   e 0.941                                  n31521
+                  --------
+                   63.692  (28.9% logic, 71.1% route), 40 logic levels.
+
+Warning: 63.852 ns is the maximum delay for this constraint.
+
+
+Timing Report Summary
+--------------
+--------------------------------------------------------------------------------
+Constraint                              |   Constraint|       Actual|Levels
+--------------------------------------------------------------------------------
+                                        |             |             |
+create_clock -period 5.000000 -name     |             |             |
+clk0 [get_nets sys_clk]                 |     5.000 ns|    63.852 ns|    40 *
+                                        |             |             |
+--------------------------------------------------------------------------------
+
+
+1 constraints not met.
+
+--------------------------------------------------------------------------------
+Critical Nets                           |   Loads|  Errors| % of total
+--------------------------------------------------------------------------------
+apuesta[1]                              |       7|    4096|     99.00%
+                                        |        |        |
+n6                                      |       2|    4096|     99.00%
+                                        |        |        |
+n6_adj_1828                             |       1|    4096|     99.00%
+                                        |        |        |
+n10_adj_1699                            |       1|    4096|     99.00%
+                                        |        |        |
+n12_adj_1688                            |       1|    4096|     99.00%
+                                        |        |        |
+n12_adj_1886                            |       1|    4096|     99.00%
+                                        |        |        |
+n20_adj_1880                            |       1|    4096|     99.00%
+                                        |        |        |
+n150                                    |      13|    4096|     99.00%
+                                        |        |        |
+n242_adj_1820                           |       7|    4096|     99.00%
+                                        |        |        |
+n289_adj_1821                           |       5|    4096|     99.00%
+                                        |        |        |
+n301                                    |      12|    4096|     99.00%
+                                        |        |        |
+n377_adj_1814                           |       3|    4096|     99.00%
+                                        |        |        |
+n617_adj_1720                           |      12|    4096|     99.00%
+                                        |        |        |
+n662_adj_1715                           |       4|    4096|     99.00%
+                                        |        |        |
+n16696                                  |      11|    4096|     99.00%
+                                        |        |        |
+n16697                                  |      14|    4096|     99.00%
+                                        |        |        |
+n16698                                  |      17|    4096|     99.00%
+                                        |        |        |
+n16699                                  |      19|    4096|     99.00%
+                                        |        |        |
+n16700                                  |      21|    4096|     99.00%
+                                        |        |        |
+n16701                                  |      22|    4096|     99.00%
+                                        |        |        |
+n27033                                  |       1|    4096|     99.00%
+                                        |        |        |
+n31014                                  |       1|    4096|     99.00%
+                                        |        |        |
+n31015                                  |       1|    4096|     99.00%
+                                        |        |        |
+n31016                                  |       1|    4096|     99.00%
+                                        |        |        |
+n31017                                  |       1|    4096|     99.00%
+                                        |        |        |
+n31018                                  |       1|    4096|     99.00%
+                                        |        |        |
+n31019                                  |       1|    4096|     99.00%
+                                        |        |        |
+n31731                                  |       1|    4096|     99.00%
+                                        |        |        |
+n34852                                  |       3|    4096|     99.00%
+                                        |        |        |
+n34900                                  |       4|    4096|     99.00%
+                                        |        |        |
+n14_adj_1824                            |       1|    3406|     83.15%
+                                        |        |        |
+n31521                                  |       1|    2864|     69.92%
+                                        |        |        |
+n34850                                  |       2|    2864|     69.92%
+                                        |        |        |
+n34883                                  |       3|    2716|     66.31%
+                                        |        |        |
+n15_adj_1873                            |       1|    2530|     61.77%
+                                        |        |        |
+n34915                                  |       5|    2157|     52.66%
+                                        |        |        |
+n333_adj_1809                           |       5|    1939|     47.34%
+                                        |        |        |
+n518_adj_1764                           |       3|    1614|     39.40%
+                                        |        |        |
+n14_adj_1874                            |       1|    1566|     38.23%
+                                        |        |        |
+n471_adj_1783                           |       3|    1556|     37.99%
+                                        |        |        |
+n423_adj_1800                           |       3|    1380|     33.69%
+                                        |        |        |
+n563_adj_1747                           |       3|    1315|     32.10%
+                                        |        |        |
+n34731                                  |       1|    1232|     30.08%
+                                        |        |        |
+n34851                                  |       2|    1232|     30.08%
+                                        |        |        |
+n472_adj_1782                           |       3|     967|     23.61%
+                                        |        |        |
+n608_adj_1726                           |       2|     963|     23.51%
+                                        |        |        |
+n512_adj_1770                           |       3|     844|     20.61%
+                                        |        |        |
+n514_adj_1768                           |       3|     819|     20.00%
+                                        |        |        |
+n515_adj_1767                           |       3|     819|     20.00%
+                                        |        |        |
+n470_adj_1784                           |       3|     799|     19.51%
+                                        |        |        |
+n468_adj_1786                           |       3|     774|     18.90%
+                                        |        |        |
+n559_adj_1751                           |       3|     697|     17.02%
+                                        |        |        |
+n561_adj_1749                           |       3|     697|     17.02%
+                                        |        |        |
+n562_adj_1748                           |       3|     697|     17.02%
+                                        |        |        |
+n10_adj_1907                            |       1|     690|     16.85%
+                                        |        |        |
+n557                                    |       3|     690|     16.85%
+                                        |        |        |
+n604_adj_1730                           |       2|     523|     12.77%
+                                        |        |        |
+n602_adj_1732                           |       2|     522|     12.74%
+                                        |        |        |
+n603_adj_1731                           |       2|     522|     12.74%
+                                        |        |        |
+n605_adj_1729                           |       2|     522|     12.74%
+                                        |        |        |
+n607_adj_1727                           |       2|     522|     12.74%
+                                        |        |        |
+n609_adj_1725                           |       2|     522|     12.74%
+                                        |        |        |
+--------------------------------------------------------------------------------
+
+
+Timing summary:
+---------------
+
+Timing errors: 4096  Score: 241057792
+
+Constraints cover >4294967295 paths, 2565 nets, and 8061 connections (97.8% coverage)
+
+
+Peak memory: 147726336 bytes, TRCE: 21102592 bytes, DLYMAN: 655360 bytes
+CPU_TIME_REPORT: 0 secs 

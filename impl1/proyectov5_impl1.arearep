@@ -1,0 +1,101 @@
+----------------------------------------------------------------------
+Report for cell Tragamonedas_Top.TECH
+Register bits:  453 of 7209 (6.284%)
+I/O cells:      26
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              CCU2D       234          100.0
+                            FD1P3AX       263          100.0
+                            FD1P3AY         7          100.0
+                            FD1P3IX       128          100.0
+                            FD1P3JX         8          100.0
+                            FD1S3AX         3          100.0
+                            FD1S3IX        44          100.0
+                                GSR         1          100.0
+                                 IB         6          100.0
+                            L6MUX21         1          100.0
+                               LUT4      1413          100.0
+                                 OB        20          100.0
+                               OSCH         1          100.0
+                              PFUMX       108          100.0
+SUB MODULES
+                         AdderSub16         1
+                          FullAdder         1
+                   KeypadController         1
+                     LCD_Controller         1
+                         MemoriaROM         1
+                      MemoriaROM_U0         1
+                      MemoriaROM_U1         1
+                       Multiplier16         1
+                              TOTAL      2245
+----------------------------------------------------------------------
+Report for cell MemoriaROM_U1.v1
+Instance Path : ROM_Instance_1
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         6            0.4
+                              TOTAL         6
+----------------------------------------------------------------------
+Report for cell MemoriaROM_U0.v1
+Instance Path : ROM_Instance_2
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         4            0.3
+                              TOTAL         4
+----------------------------------------------------------------------
+Report for cell LCD_Controller.v1
+Instance Path : Inst_LCD
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              CCU2D        10            4.3
+                            FD1P3AX        24            9.1
+                            FD1P3IX         2            1.6
+                            FD1S3IX        18           40.9
+                               LUT4       273           19.3
+                              PFUMX        21           19.4
+                              TOTAL       348
+----------------------------------------------------------------------
+Report for cell MemoriaROM.v1
+Instance Path : ROM_Instance_3
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         8            0.6
+                              TOTAL         8
+----------------------------------------------------------------------
+Report for cell AdderSub16.v1
+Instance Path : CPU_ADDER
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              CCU2D         8            3.4
+                               LUT4         1            0.1
+SUB MODULES
+                          FullAdder         1
+                              TOTAL        10
+----------------------------------------------------------------------
+Report for cell FullAdder.v1
+Instance Path : CPU_ADDER.GEN_ADDERS[0].FAx
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              CCU2D         8            3.4
+                               LUT4         1            0.1
+                              TOTAL         9
+----------------------------------------------------------------------
+Report for cell Multiplier16.v1
+Instance Path : CPU_MULT
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              CCU2D        64           27.4
+                               LUT4        27            1.9
+                              PFUMX         1            0.9
+                              TOTAL        92
+----------------------------------------------------------------------
+Report for cell KeypadController.v1
+Instance Path : Inst_Key
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              CCU2D        10            4.3
+                            FD1P3AX        28           10.6
+                            FD1P3IX         4            3.1
+                               LUT4        79            5.6
+                              PFUMX         5            4.6
+                              TOTAL       126

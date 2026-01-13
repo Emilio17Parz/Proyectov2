@@ -1,0 +1,345 @@
+synthesis:  version Diamond (64-bit) 3.14.0.75.2
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
+Mon Jan 12 23:17:12 2026
+
+
+Command Line:  synthesis -f proyectov5_impl1_lattice.synproj -gui 
+
+Synthesis options:
+The -a option is MachXO2.
+The -s option is 4.
+The -t option is TQFP144.
+The -d option is LCMXO2-7000HE.
+Using package TQFP144.
+Using performance grade 4.
+                                                          
+
+##########################################################
+
+### Lattice Family : MachXO2
+
+### Device  : LCMXO2-7000HE
+
+### Package : TQFP144
+
+### Speed   : 4
+
+##########################################################
+
+                                                          
+
+INFO - synthesis: User-Selected Strategy Settings
+Optimization goal = Balanced
+The -top option is not used.
+Target frequency = 200.000000 MHz.
+Maximum fanout = 1000.
+Timing path count = 3
+BRAM utilization = 100.000000 %
+DSP usage = true
+DSP utilization = 100.000000 %
+fsm_encoding_style = auto
+resolve_mixed_drivers = 0
+fix_gated_clocks = 1
+
+Mux style = Auto
+Use Carry Chain = true
+carry_chain_length = 0
+Loop Limit = 1950.
+Use IO Insertion = TRUE
+Use IO Reg = AUTO
+
+Resource Sharing = TRUE
+Propagate Constants = TRUE
+Remove Duplicate Registers = TRUE
+force_gsr = auto
+ROM style = auto
+RAM style = auto
+The -comp option is FALSE.
+The -syn option is FALSE.
+-p C:/lscc/diamond/3.14/ispfpga/xo2c00/data (searchpath added)
+-p C:/Users/jecal/OneDrive/Desktop/Arqui/Arqui_v2/proyecto5/impl1 (searchpath added)
+-p C:/Users/jecal/OneDrive/Desktop/Arqui/Arqui_v2/proyecto5 (searchpath added)
+VHDL library = work
+VHDL design file = C:/Users/jecal/OneDrive/Desktop/Arqui/Arqui_v2/proyecto5/AdderSub16.vhd
+VHDL design file = C:/Users/jecal/OneDrive/Desktop/Arqui/Arqui_v2/proyecto5/FullAdder.vhd
+VHDL design file = C:/Users/jecal/OneDrive/Desktop/Arqui/Arqui_v2/proyecto5/KeypadController.vhd
+VHDL design file = C:/Users/jecal/OneDrive/Desktop/Arqui/Arqui_v2/proyecto5/LCD_Controller.vhd
+VHDL design file = C:/Users/jecal/OneDrive/Desktop/Arqui/Arqui_v2/proyecto5/MemoriaROM.vhd
+VHDL design file = C:/Users/jecal/OneDrive/Desktop/Arqui/Arqui_v2/proyecto5/Multiplier16.vhd
+VHDL design file = C:/Users/jecal/OneDrive/Desktop/Arqui/Arqui_v2/proyecto5/Tragamonedas_Top.vhd
+NGD file = proyectov5_impl1.ngd
+-sdc option: SDC file input not used.
+-lpf option: Output file option is ON.
+Hardtimer checking is enabled (default). The -dt option is not used.
+The -r option is OFF. [ Remove LOC Properties is OFF. ]
+Technology check ok...
+
+Analyzing Verilog file C:/lscc/diamond/3.14/ispfpga/userware/NT/SYNTHESIS_HEADERS/machxo2.v. VERI-1482
+Compile design.
+Compile Design Begin
+WARNING - synthesis: Setting Tragamonedas_Top as the top-level module. To specify the top-level module explicitly, use the -top option.
+INFO - synthesis: The default VHDL library search path is now "C:/Users/jecal/OneDrive/Desktop/Arqui/Arqui_v2/proyecto5/impl1". VHDL-1504
+Analyzing VHDL file c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/addersub16.vhd. VHDL-1481
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/addersub16.vhd(4): analyzing entity addersub16. VHDL-1012
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/addersub16.vhd(15): analyzing architecture structural. VHDL-1010
+unit Tragamonedas_Top is not yet analyzed. VHDL-1485
+Analyzing VHDL file c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/fulladder.vhd. VHDL-1481
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/fulladder.vhd(4): analyzing entity fulladder. VHDL-1012
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/fulladder.vhd(11): analyzing architecture estructural. VHDL-1010
+unit Tragamonedas_Top is not yet analyzed. VHDL-1485
+Analyzing VHDL file c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/keypadcontroller.vhd. VHDL-1481
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/keypadcontroller.vhd(5): analyzing entity keypadcontroller. VHDL-1012
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/keypadcontroller.vhd(15): analyzing architecture behavioral. VHDL-1010
+unit Tragamonedas_Top is not yet analyzed. VHDL-1485
+Analyzing VHDL file c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/lcd_controller.vhd. VHDL-1481
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/lcd_controller.vhd(5): analyzing entity lcd_controller. VHDL-1012
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/lcd_controller.vhd(21): analyzing architecture behavioral. VHDL-1010
+unit Tragamonedas_Top is not yet analyzed. VHDL-1485
+Analyzing VHDL file c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/memoriarom.vhd. VHDL-1481
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/memoriarom.vhd(5): analyzing entity memoriarom. VHDL-1012
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/memoriarom.vhd(12): analyzing architecture data. VHDL-1010
+unit Tragamonedas_Top is not yet analyzed. VHDL-1485
+Analyzing VHDL file c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/multiplier16.vhd. VHDL-1481
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/multiplier16.vhd(5): analyzing entity multiplier16. VHDL-1012
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/multiplier16.vhd(13): analyzing architecture hardwarealgo. VHDL-1010
+unit Tragamonedas_Top is not yet analyzed. VHDL-1485
+Analyzing VHDL file c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/tragamonedas_top.vhd. VHDL-1481
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/tragamonedas_top.vhd(5): analyzing entity tragamonedas_top. VHDL-1012
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/tragamonedas_top.vhd(23): analyzing architecture behavioral. VHDL-1010
+WARNING - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/tragamonedas_top.vhd(150): actual for formal port addr is neither a static name nor a globally static expression. VHDL-1443
+WARNING - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/tragamonedas_top.vhd(151): actual for formal port addr is neither a static name nor a globally static expression. VHDL-1443
+WARNING - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/tragamonedas_top.vhd(23): overwriting existing secondary unit behavioral. VHDL-1178
+unit Tragamonedas_Top is not yet analyzed. VHDL-1485
+Analyzing VHDL file c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/addersub16.vhd. VHDL-1481
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/addersub16.vhd(4): analyzing entity addersub16. VHDL-1012
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/addersub16.vhd(15): analyzing architecture structural. VHDL-1010
+unit Tragamonedas_Top is not yet analyzed. VHDL-1485
+Analyzing VHDL file c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/fulladder.vhd. VHDL-1481
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/fulladder.vhd(4): analyzing entity fulladder. VHDL-1012
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/fulladder.vhd(11): analyzing architecture estructural. VHDL-1010
+unit Tragamonedas_Top is not yet analyzed. VHDL-1485
+Analyzing VHDL file c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/keypadcontroller.vhd. VHDL-1481
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/keypadcontroller.vhd(5): analyzing entity keypadcontroller. VHDL-1012
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/keypadcontroller.vhd(15): analyzing architecture behavioral. VHDL-1010
+unit Tragamonedas_Top is not yet analyzed. VHDL-1485
+Analyzing VHDL file c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/lcd_controller.vhd. VHDL-1481
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/lcd_controller.vhd(5): analyzing entity lcd_controller. VHDL-1012
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/lcd_controller.vhd(21): analyzing architecture behavioral. VHDL-1010
+unit Tragamonedas_Top is not yet analyzed. VHDL-1485
+Analyzing VHDL file c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/memoriarom.vhd. VHDL-1481
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/memoriarom.vhd(5): analyzing entity memoriarom. VHDL-1012
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/memoriarom.vhd(12): analyzing architecture data. VHDL-1010
+unit Tragamonedas_Top is not yet analyzed. VHDL-1485
+Analyzing VHDL file c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/multiplier16.vhd. VHDL-1481
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/multiplier16.vhd(5): analyzing entity multiplier16. VHDL-1012
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/multiplier16.vhd(13): analyzing architecture hardwarealgo. VHDL-1010
+unit Tragamonedas_Top is not yet analyzed. VHDL-1485
+Analyzing VHDL file c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/tragamonedas_top.vhd. VHDL-1481
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/tragamonedas_top.vhd(5): analyzing entity tragamonedas_top. VHDL-1012
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/tragamonedas_top.vhd(23): analyzing architecture behavioral. VHDL-1010
+WARNING - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/tragamonedas_top.vhd(150): actual for formal port addr is neither a static name nor a globally static expression. VHDL-1443
+WARNING - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/tragamonedas_top.vhd(151): actual for formal port addr is neither a static name nor a globally static expression. VHDL-1443
+unit Tragamonedas_Top is not yet analyzed. VHDL-1485
+unit Tragamonedas_Top is not yet analyzed. VHDL-1485
+c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/tragamonedas_top.vhd(5): executing Tragamonedas_Top(Behavioral)
+
+INFO - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/tragamonedas_top.vhd(355): others clause is never selected. VHDL-1172
+WARNING - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/tragamonedas_top.vhd(21): replacing existing netlist Tragamonedas_Top(Behavioral). VHDL-1205
+Top module name (VHDL): Tragamonedas_Top
+Loading NGL library 'C:/lscc/diamond/3.14/ispfpga/xo2c00a/data/xo2alib.ngl'...
+Loading NGL library 'C:/lscc/diamond/3.14/ispfpga/xo2c00/data/xo2clib.ngl'...
+Loading NGL library 'C:/lscc/diamond/3.14/ispfpga/mg5g00/data/mg5glib.ngl'...
+Loading NGL library 'C:/lscc/diamond/3.14/ispfpga/or5g00/data/orc5glib.ngl'...
+Loading device for application map from file 'xo2c7000.nph' in environment: C:/lscc/diamond/3.14/ispfpga.
+Package Status:                     Final          Version 1.39.
+Top-level module name = Tragamonedas_Top.
+WARNING - synthesis: Initial value found on net rom_out_r1[3] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net rom_out_r1[2] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net rom_out_r1[1] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net rom_out_r1[0] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net rom_out_r2[3] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net rom_out_r2[2] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net rom_out_r2[1] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net rom_out_r2[0] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net rom_out_r3[3] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net rom_out_r3[2] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net rom_out_r3[1] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net rom_out_r3[0] will be ignored due to unrecognized driver type
+WARNING - synthesis: I/O Port BTN_SPIN 's net has no driver and is unused.
+WARNING - synthesis: I/O Port LEDS[3] 's net has no driver and is unused.
+WARNING - synthesis: I/O Port LEDS[2] 's net has no driver and is unused.
+WARNING - synthesis: I/O Port LEDS[1] 's net has no driver and is unused.
+WARNING - synthesis: I/O Port LEDS[0] 's net has no driver and is unused.
+######## Missing driver on net LEDS[3]. Patching with GND.
+######## Missing driver on net LEDS[2]. Patching with GND.
+######## Missing driver on net LEDS[1]. Patching with GND.
+######## Missing driver on net LEDS[0]. Patching with GND.
+
+
+
+WARNING - synthesis: Bit 127 of Register L2_Buffer is stuck at Zero
+WARNING - synthesis: Bit 120 of Register L2_Buffer is stuck at Zero
+WARNING - synthesis: Bit 119 of Register L2_Buffer is stuck at Zero
+WARNING - synthesis: Bit 111 of Register L2_Buffer is stuck at Zero
+WARNING - synthesis: Bit 103 of Register L2_Buffer is stuck at Zero
+WARNING - synthesis: Bit 95 of Register L2_Buffer is stuck at Zero
+WARNING - synthesis: Bit 87 of Register L2_Buffer is stuck at Zero
+WARNING - synthesis: Bit 79 of Register L2_Buffer is stuck at Zero
+WARNING - synthesis: Bit 74 of Register L2_Buffer is stuck at Zero
+WARNING - synthesis: Bit 72 of Register L2_Buffer is stuck at Zero
+WARNING - synthesis: Bit 71 of Register L2_Buffer is stuck at Zero
+WARNING - synthesis: Bit 63 of Register L2_Buffer is stuck at Zero
+WARNING - synthesis: Bit 55 of Register L2_Buffer is stuck at Zero
+WARNING - synthesis: Bit 47 of Register L2_Buffer is stuck at Zero
+WARNING - synthesis: Bit 39 of Register L2_Buffer is stuck at Zero
+WARNING - synthesis: Bit 31 of Register L2_Buffer is stuck at Zero
+WARNING - synthesis: Bit 23 of Register L2_Buffer is stuck at Zero
+WARNING - synthesis: Bit 15 of Register L2_Buffer is stuck at Zero
+WARNING - synthesis: Bit 7 of Register L2_Buffer is stuck at Zero
+WARNING - synthesis: Bit 6 of Register L2_Buffer is stuck at Zero
+WARNING - synthesis: Bit 4 of Register L2_Buffer is stuck at Zero
+WARNING - synthesis: Bit 3 of Register L2_Buffer is stuck at Zero
+WARNING - synthesis: Bit 2 of Register L2_Buffer is stuck at Zero
+WARNING - synthesis: Bit 1 of Register L2_Buffer is stuck at Zero
+WARNING - synthesis: Bit 0 of Register L2_Buffer is stuck at Zero
+######## Missing driver on net n1379. Patching with GND.
+WARNING - synthesis: I/O Port BTN_SPIN 's net has no driver and is unused.
+WARNING - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/tragamonedas_top.vhd(357): Register L1_Buffer_i0_i127 is stuck at Zero. VDB-5013
+WARNING - synthesis: c:/users/jecal/onedrive/desktop/arqui/arqui_v2/proyecto5/lcd_controller.vhd(137): Register \Inst_LCD/current_char_i0_i7 is stuck at Zero. VDB-5013
+GSR instance connected to net RESET_N_c.
+WARNING - synthesis: Initial value found on instance j_mil_i0 will be ignored.
+Duplicate register/latch removal. L2_Buffer__i103 is a one-to-one match with L2_Buffer__i48.
+Duplicate register/latch removal. L2_Buffer__i100 is a one-to-one match with L2_Buffer__i98.
+Duplicate register/latch removal. L2_Buffer__i97 is a one-to-one match with L2_Buffer__i95.
+Duplicate register/latch removal. L2_Buffer__i96 is a one-to-one match with L2_Buffer__i74.
+Duplicate register/latch removal. L2_Buffer__i93 is a one-to-one match with L2_Buffer__i20.
+Duplicate register/latch removal. L2_Buffer__i92 is a one-to-one match with L2_Buffer__i41.
+Duplicate register/latch removal. L1_Buffer_i0_i0 is a one-to-one match with L1_Buffer_i0_i92.
+Duplicate register/latch removal. L2_Buffer__i34 is a one-to-one match with L2_Buffer__i103.
+Duplicate register/latch removal. L2_Buffer__i27 is a one-to-one match with L2_Buffer__i34.
+Duplicate register/latch removal. L2_Buffer__i13 is a one-to-one match with L2_Buffer__i93.
+Duplicate register/latch removal. L2_Buffer__i6 is a one-to-one match with L2_Buffer__i13.
+Duplicate register/latch removal. L1_Buffer_i0_i123 is a one-to-one match with L1_Buffer_i0_i115.
+Duplicate register/latch removal. L1_Buffer_i0_i116 is a one-to-one match with L1_Buffer_i0_i36.
+Duplicate register/latch removal. L1_Buffer_i0_i113 is a one-to-one match with L1_Buffer_i0_i69.
+Duplicate register/latch removal. L1_Buffer_i0_i102 is a one-to-one match with L1_Buffer_i0_i94.
+Duplicate register/latch removal. L1_Buffer_i0_i98 is a one-to-one match with L1_Buffer_i0_i29.
+Duplicate register/latch removal. L1_Buffer_i0_i96 is a one-to-one match with L1_Buffer_i0_i48.
+Duplicate register/latch removal. L1_Buffer_i0_i89 is a one-to-one match with L1_Buffer_i0_i0.
+Duplicate register/latch removal. L1_Buffer_i0_i88 is a one-to-one match with L1_Buffer_i0_i102.
+Duplicate register/latch removal. L1_Buffer_i0_i86 is a one-to-one match with L1_Buffer_i0_i81.
+Duplicate register/latch removal. L1_Buffer_i0_i85 is a one-to-one match with L1_Buffer_i0_i89.
+Duplicate register/latch removal. L1_Buffer_i0_i76 is a one-to-one match with L1_Buffer_i0_i74.
+Duplicate register/latch removal. L1_Buffer_i0_i70 is a one-to-one match with L1_Buffer_i0_i13.
+Duplicate register/latch removal. L1_Buffer_i0_i62 is a one-to-one match with L1_Buffer_i0_i54.
+Duplicate register/latch removal. L1_Buffer_i0_i61 is a one-to-one match with L1_Buffer_i0_i76.
+Duplicate register/latch removal. L1_Buffer_i0_i59 is a one-to-one match with L1_Buffer_i0_i57.
+Duplicate register/latch removal. L1_Buffer_i0_i53 is a one-to-one match with L1_Buffer_i0_i61.
+Duplicate register/latch removal. L1_Buffer_i0_i52 is a one-to-one match with L1_Buffer_i0_i123.
+Duplicate register/latch removal. L1_Buffer_i0_i51 is a one-to-one match with L1_Buffer_i0_i49.
+Duplicate register/latch removal. L1_Buffer_i0_i46 is a one-to-one match with L1_Buffer_i0_i40.
+Duplicate register/latch removal. L1_Buffer_i0_i44 is a one-to-one match with L1_Buffer_i0_i52.
+Duplicate register/latch removal. L1_Buffer_i0_i43 is a one-to-one match with L1_Buffer_i0_i41.
+Duplicate register/latch removal. L1_Buffer_i0_i42 is a one-to-one match with L1_Buffer_i0_i34.
+Duplicate register/latch removal. L1_Buffer_i0_i35 is a one-to-one match with L1_Buffer_i0_i43.
+Duplicate register/latch removal. L1_Buffer_i0_i30 is a one-to-one match with L1_Buffer_i0_i22.
+Duplicate register/latch removal. L1_Buffer_i0_i21 is a one-to-one match with L1_Buffer_i0_i98.
+Duplicate register/latch removal. L1_Buffer_i0_i14 is a one-to-one match with L1_Buffer_i0_i113.
+Duplicate register/latch removal. L1_Buffer_i0_i12 is a one-to-one match with L1_Buffer_i0_i85.
+Duplicate register/latch removal. L1_Buffer_i0_i8 is a one-to-one match with L1_Buffer_i0_i44.
+Duplicate register/latch removal. L1_Buffer_i0_i5 is a one-to-one match with L1_Buffer_i0_i88.
+Duplicate register/latch removal. L1_Buffer_i0_i4 is a one-to-one match with L1_Buffer_i0_i8.
+Duplicate register/latch removal. L1_Buffer_i0_i3 is a one-to-one match with L1_Buffer_i0_i4.
+Duplicate register/latch removal. L1_Buffer_i0_i1 is a one-to-one match with L1_Buffer_i0_i3.
+Applying 200.000000 MHz constraint to all clocks
+
+WARNING - synthesis: No user .sdc file.
+Results of NGD DRC are available in Tragamonedas_Top_drc.log.
+Loading NGL library 'C:/lscc/diamond/3.14/ispfpga/xo2c00a/data/xo2alib.ngl'...
+Loading NGL library 'C:/lscc/diamond/3.14/ispfpga/xo2c00/data/xo2clib.ngl'...
+Loading NGL library 'C:/lscc/diamond/3.14/ispfpga/mg5g00/data/mg5glib.ngl'...
+Loading NGL library 'C:/lscc/diamond/3.14/ispfpga/or5g00/data/orc5glib.ngl'...
+WARNING - synthesis: logical net 'BTN_SPIN' has no load.
+WARNING - synthesis: input pad net 'BTN_SPIN' has no legal load.
+WARNING - synthesis: DRC complete with 2 warnings.
+All blocks are expanded and NGD expansion is successful.
+Writing NGD file proyectov5_impl1.ngd.
+
+################### Begin Area Report (Tragamonedas_Top)######################
+Number of register bits => 453 of 7209 (6 % )
+CCU2D => 234
+FD1P3AX => 263
+FD1P3AY => 7
+FD1P3IX => 128
+FD1P3JX => 8
+FD1S3AX => 3
+FD1S3IX => 44
+GSR => 1
+IB => 6
+L6MUX21 => 1
+LUT4 => 1413
+OB => 20
+OSCH => 1
+PFUMX => 108
+################### End Area Report ##################
+
+################### Begin BlackBox Report ######################
+TSALL => 1
+################### End BlackBox Report ##################
+
+################### Begin Clock Report ######################
+Clock Nets
+Number of Clocks: 1
+  Net : sys_clk, loads : 453
+Clock Enable Nets
+Number of Clock Enables: 52
+Top 10 highest fanout Clock Enables:
+  Net : sys_clk_enable_352, loads : 50
+  Net : sys_clk_enable_302, loads : 43
+  Net : sys_clk_enable_203, loads : 43
+  Net : sys_clk_enable_389, loads : 30
+  Net : sys_clk_enable_324, loads : 21
+  Net : Inst_Key/sys_clk_enable_333, loads : 19
+  Net : sys_clk_enable_402, loads : 14
+  Net : sys_clk_enable_227, loads : 14
+  Net : sys_clk_enable_401, loads : 14
+  Net : sys_clk_enable_117, loads : 14
+Highest fanout non-clock nets
+Top 10 highest fanout non-clock nets:
+  Net : state_2, loads : 217
+  Net : state_3, loads : 212
+  Net : state_0, loads : 168
+  Net : state_1, loads : 129
+  Net : r2_active, loads : 128
+  Net : RESET_N_c, loads : 79
+  Net : Inst_LCD/char_index_1, loads : 63
+  Net : n35172, loads : 56
+  Net : Inst_LCD/char_index_2, loads : 54
+  Net : blink_toggle, loads : 53
+################### End Clock Report ##################
+
+Timing Report Summary
+--------------
+--------------------------------------------------------------------------------
+Constraint                              |   Constraint|       Actual|Levels
+--------------------------------------------------------------------------------
+                                        |             |             |
+create_clock -period 5.000000 -name     |             |             |
+clk0 [get_nets sys_clk]                 |  200.000 MHz|   15.661 MHz|    40 *
+                                        |             |             |
+--------------------------------------------------------------------------------
+
+
+1 constraints not met.
+
+
+Peak Memory Usage: 140.910  MB
+
+--------------------------------------------------------------
+Elapsed CPU time for LSE flow : 4.844  secs
+--------------------------------------------------------------

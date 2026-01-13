@@ -1,0 +1,5 @@
+-rem
+-distrce
+-log "proyectov5_impl1.log"
+-o "proyectov5_impl1.csv"
+-pr "proyectov5_impl1.prf"
