@@ -1,15 +1,15 @@
-# 🎰 Máquina Tragamonedas - FPGA System
+# Máquina Tragamonedas - FPGA System
 
 [![VHDL](https://img.shields.io/badge/Language-VHDL--2008-orange.svg)](https://en.wikipedia.org/wiki/VHDL)
 [![Platform](https://img.shields.io/badge/Platform-Lattice%20FPGA-blue.svg)](https://www.latticesemi.com/)
 [![Standard](https://img.shields.io/badge/Standard-IEEE%201164%20/%20Numeric__Std-green.svg)](https://ieeexplore.ieee.org/document/560341)
 
-## 📝 Descripción del Proyecto
-Este proyecto implementa una **Máquina Tragamonedas (Slot Machine)** digital de alto rendimiento diseñada en VHDL para FPGAs (arquitectura Lattice MachXO2). El sistema integra lógica de control de estados (FSM), procesamiento aritmético de 16 bits para el cálculo de premios y gestión de periféricos en tiempo real como teclados matriciales y pantallas LCD.
+## Descripción del Proyecto
+Este proyecto implementa una **Máquina Tragamonedas (Slot Machine)** digital de alto rendimiento diseñada en VHDL para FPGAs (arquitectura Lattice MachXO2). El sistema integra lógica de control de estados (FSM) y el uso de CPU, procesamiento aritmético de 16 bits para el cálculo de premios y gestión de periféricos en tiempo real como teclados matriciales y pantallas LCD.
 
 
 
-## 🏗️ Arquitectura del Sistema
+##  Arquitectura del Sistema
 
 El sistema sigue una jerarquía de diseño estructural dividida en los siguientes módulos:
 
@@ -34,19 +34,19 @@ Unidad dedicada para procesar el balance del Jackpot y el cálculo de multiplica
 
 
 
-## ⚙️ Especificaciones Técnicas
+## Especificaciones Técnicas
 * **Frecuencia de Operación:** 2.08 MHz (Oscilador interno OSCH).
 * **Ancho de Palabra:** 16 bits (Aritmética de jackpot hasta $2^{16}-1$).
 * **Protocolo LCD:** Comunicación de 8 bits con temporización basada en ciclos de reloj.
 * **Algoritmo de Resta:** Complemento a 2 mediante inversión condicional de bits.
 
-## 🚀 Cómo Utilizar
+## Cómo Utilizar
 1.  **Clonación:** `git clone https://github.com/Emilio17Parz/Proyectov2.git`
 2.  **Síntesis:** Importar archivos `.vhd` en Lattice Diamond o software equivalente.
 3.  **Asignación de Pines:** Consultar el manual de la tarjeta de desarrollo para asignar los puertos de `ROWS_IN`, `COLS_OUT` y el bus de la `LCD`.
 4.  **Ejecución:** Resetear el sistema mediante `RESET_N` para iniciar la fase de `POWER_UP` del LCD.
 
-## 📁 Estructura de Archivos
+## Estructura de Archivos
 ```text
 ├── Tragamonedas_Top.vhd   # Entidad de jerarquía superior
 ├── AdderSub16.vhd         # Sumador/Restador de 16 bits
