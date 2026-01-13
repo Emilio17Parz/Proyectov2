@@ -1,36 +1,51 @@
+-- ############################################################################
+-- PROYECTO: M谩quina Tragamonedas (Arquitectura de Computadoras)
+-- M脫DULO:   Tragamonedas_Top
+-- EST脕NDAR: VHDL-2008
+-- DESCRIPCI脫N: Entidad de jerarqu铆a superior (Top-Level) que integra la l贸gica
+--              de control de estados (FSM), gesti贸n de perif茅ricos (LCD, Keypad),
+--              unidades aritm茅ticas (ALU) y acceso a memoria ROM.
+-- ############################################################################
+
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity Tragamonedas_Top is
     Port ( 
-        RESET_N     : in  STD_LOGIC;
-        SW_MODE     : in  STD_LOGIC; 
-        BTN_SPIN    : in  STD_LOGIC; 
-        
-        ROWS_IN     : in  STD_LOGIC_VECTOR(3 downto 0);
-        COLS_OUT    : out STD_LOGIC_VECTOR(3 downto 0);
-   
-        LCD_RS      : out STD_LOGIC;
-        LCD_RW      : out STD_LOGIC;
-        LCD_E       : out STD_LOGIC;
-        LCD_DATA    : out STD_LOGIC_VECTOR(7 downto 0);
-        
-        LEDS        : out STD_LOGIC_VECTOR(4 downto 0)
+        -- Entradas de Control y Usuario
+        RESET_N     : in  STD_LOGIC;                             -- Reset maestro as铆ncrono (Activo bajo)
+        SW_MODE     : in  STD_LOGIC;                             -- Selector de modo de operaci贸n
+        BTN_SPIN    : in  STD_LOGIC;                             -- Entrada de inicio de juego
+        -- Interfaz de Teclado Matricial
+        ROWS_IN     : in  STD_LOGIC_VECTOR(3 downto 0);          -- Filas del teclado (Entrada)
+        COLS_OUT    : out STD_LOGIC_VECTOR(3 downto 0);          -- Columnas del teclado (Salida)
+        -- Interfaz de Control de Pantalla LCD
+        LCD_RS      : out STD_LOGIC;                             -- Register Select
+        LCD_RW      : out STD_LOGIC;                             -- Read/Write
+        LCD_E       : out STD_LOGIC;                             -- Enable
+        LCD_DATA    : out STD_LOGIC_VECTOR(7 downto 0);          -- Bus de datos de 8 bits
+        -- Salidas de Monitoreo
+        LEDS        : out STD_LOGIC_VECTOR(4 downto 0)            -- Feedback visual (Estado/LCD On)
     );
 end Tragamonedas_Top;
 
 architecture Behavioral of Tragamonedas_Top is
 
-    -- COMPONENTES
+    -- =========================================================
+    -- DEFINICI脫N DE COMPONENTES EXTERNOS
+    -- =========================================================
+
+    -- Oscilador Interno Espec铆fico de Lattice
     component OSCH Generic (NOM_FREQ: string);
         Port (STDBY: in std_logic; OSC: out std_logic; SEDSTDBY: out std_logic); 
     end component;
-
+    -- Controlador de Teclado Matricial (Escaneo y Decodificaci贸n)
     component KeypadController 
         Port (CLK: in std_logic; ROWS: in std_logic_vector; COLS: out std_logic_vector; KEY_CODE: out std_logic_vector; KEY_VALID: out std_logic);
     end component;
-    
+    -- Controlador de Pantalla LCD (Protocolo de Inicializaci贸n y Escritura)
     component LCD_Controller
         Port (
             CLK        : in  STD_LOGIC;
@@ -42,17 +57,18 @@ architecture Behavioral of Tragamonedas_Top is
             LCD_ON : out STD_LOGIC
         );
     end component;
-
+    -- Unidad Sumadora/Restadora de 16 bits
     component AdderSub16 
         port(Modo: in std_logic; OpA, OpB: in std_logic_vector(15 downto 0); Res: out std_logic_vector(15 downto 0); Cout, Ovf: out std_logic);
     end component;
-    
+    -- Unidad Multiplicadora de 16 bits
     component Multiplier16 
         port(OpA, OpB: in std_logic_vector(15 downto 0); Res: out std_logic_vector(15 downto 0));
     end component;
 
     -- =========================================================
-    -- CORRECCI覰: Declaraci髇 actualizada para coincidir con MemoriaROM.vhd
+    -- CORRECCI脫N: Declaraci贸n actualizada para coincidir con MemoriaROM.vhd
+    -- Memoria de Solo Lectura para Almacenamiento de S铆mbolos
     -- =========================================================
     component MemoriaROM
         port(
@@ -61,39 +77,43 @@ architecture Behavioral of Tragamonedas_Top is
         );
     end component;
 
-    -- SE袮LES CLOCK
-    signal sys_clk : std_logic;
-    signal osc_div : unsigned(25 downto 0) := (others => '0'); 
-    signal tick_anim : std_logic;
-    signal tick_1s   : std_logic;
-    signal blink_toggle : std_logic := '0';
+    -- =========================================================
+    -- SE脩ALES INTERNAS
+    -- =========================================================
 
-    -- RODILLOS
-    signal idx_r1, idx_r2, idx_r3 : integer range 0 to 8 := 0;
-    -- Se馻les de salida de la ROM (Vectores de 8 bits)
+    -- Dominio de Reloj
+    signal sys_clk : std_logic;                                                    -- Se帽al de reloj del sistema
+    signal osc_div : unsigned(25 downto 0) := (others => '0');                     -- Divisor de frecuencia
+    signal tick_anim : std_logic;                                                  -- Habilitador para animaciones
+    signal tick_1s   : std_logic;                                                  -- Pulso de referencia de 1 segundo
+    signal blink_toggle : std_logic := '0';                                        -- Se帽al para parpadeo visual
+
+    -- Gesti贸n de Rodillos (Indices y Valores)
+    signal idx_r1, idx_r2, idx_r3 : integer range 0 to 8 := 0;                    -- Punteros a la ROM
+    -- Se帽ales de salida de la ROM (Vectores de 8 bits)
     signal rom_out_r1, rom_out_r2, rom_out_r3 : std_logic_vector(7 downto 0);
-    -- Valores enteros para la l骻ica
-    signal val_r1, val_r2, val_r3 : integer range 0 to 15 := 0;
+    -- Valores enteros para la l贸gica
+    signal val_r1, val_r2, val_r3 : integer range 0 to 15 := 0;                   -- Valores num茅ricos de los s铆mbolos
 
-    -- FSM ESTADOS
+    -- Definici贸n de la M谩quina de Estados (FSM)
     type FSM_State is (
-        S_IDLE, 
-        S_INPUT, 
-        S_CALC_INIT, 
-        S_SPINNING, 
-        S_SPIN_ALL, 
-        S_STOP_SEQ_1, S_STOP_SEQ_3, S_STOP_SEQ_2, 
-        S_CHECK_WIN, 
-        S_UPDATE_POZO, 
-        S_BCD_INIT, S_BCD_1000, S_BCD_100, S_BCD_10,
-        S_SHOW_RESULT
+        S_IDLE,                                                     -- Estado de espera/reposo
+        S_INPUT,                                                    -- Captura de apuesta del usuario
+        S_CALC_INIT,                                                -- Pre-c谩lculo de par谩metros de giro
+        S_SPINNING,                                                 -- Fase inicial de giro de rodillos
+        S_SPIN_ALL,                                                 -- Giro total sincronizado
+        S_STOP_SEQ_1, S_STOP_SEQ_3, S_STOP_SEQ_2,                   -- Secuencia de frenado escalonado
+        S_CHECK_WIN,                                                -- Evaluaci贸n de l贸gica de premios
+        S_UPDATE_POZO,                                              -- Actualizaci贸n del acumulado (Jackpot)
+        S_BCD_INIT, S_BCD_1000, S_BCD_100, S_BCD_10,                -- Algoritmo de conversi贸n Binario a BCD
+        S_SHOW_RESULT                                               -- Visualizaci贸n de resultados en LCD
     );
     signal state : FSM_State := S_IDLE;
 
-    -- VARIABLES JUEGO
-    signal jackpot    : integer range 0 to 65535 := 1000; 
-    signal apuesta    : integer range 0 to 9999 := 0;
-    signal input_temp : integer range 0 to 9999 := 0; 
+    -- Registros de Juego
+    signal jackpot    : integer range 0 to 65535 := 1000;            -- Acumulado actual
+    signal apuesta    : integer range 0 to 9999 := 0;                -- Valor apostado
+    signal input_temp : integer range 0 to 9999 := 0;                -- Buffer de entrada num茅rica
     
     -- DIGITOS VISUALES
     signal j_mil, j_cen, j_dec, j_uni : integer range 0 to 9 := 0;
@@ -122,7 +142,7 @@ architecture Behavioral of Tragamonedas_Top is
     signal L1_Buffer : std_logic_vector(127 downto 0);
     signal L2_Buffer : std_logic_vector(127 downto 0);
 
-    -- HELPER
+    -- Funci贸n: Conversi贸n de Entero a ASCII (8 bits)
     function I2A(val: integer) return std_logic_vector is
     begin
         if val >= 10 then return x"58"; -- 'X'
@@ -130,32 +150,34 @@ architecture Behavioral of Tragamonedas_Top is
     end function;
     
 begin
-    
+    -- Instancia: Oscilador de Hardware Lattice (2.08 MHz)
     OSCInst0: OSCH generic map("2.08") port map('0', sys_clk, open);
+    -- Instancia: Controlador de Teclado
     Inst_Key: KeypadController port map(sys_clk, ROWS_IN, COLS_OUT, key_code, key_valid);
-    
+    -- Instancia: Controlador de Pantalla LCD
     Inst_LCD: LCD_Controller port map(
         CLK => sys_clk, RESET_N => RESET_N,
         Line1_Data => L1_Buffer, Line2_Data => L2_Buffer,
         LCD_RS => LCD_RS, LCD_RW => LCD_RW, LCD_E => LCD_E, LCD_DATA => LCD_DATA, LCD_ON => LEDS(4)
     );
-
+    -- Instancias: Unidad Aritm茅tica L贸gica
     CPU_ADDER: AdderSub16 port map (alu_mode, alu_opA, alu_opB, alu_sum_res, open, open);
     CPU_MULT: Multiplier16 port map (alu_opA, alu_opB, alu_mult_res);
 
     -- =========================================================
-    -- INSTANCIAS DE ROM (Ahora coinciden con la declaraci髇)
+    -- INSTANCIAS DE ROM (Ahora coinciden con la declaraci贸n)
+    -- Instancias: Unidades de Memoria para Rodillos
     -- =========================================================
     ROM_Instance_1: MemoriaROM port map(Addr => idx_r1, Data => rom_out_r1);
     ROM_Instance_2: MemoriaROM port map(Addr => 20 + idx_r2, Data => rom_out_r2);
     ROM_Instance_3: MemoriaROM port map(Addr => 40 + idx_r3, Data => rom_out_r3);
 
-    -- Conversi髇 a entero para usar en comparaciones
+    -- Conversi贸n a entero para usar en comparaciones
     val_r1 <= to_integer(unsigned(rom_out_r1));
     val_r2 <= to_integer(unsigned(rom_out_r2));
     val_r3 <= to_integer(unsigned(rom_out_r3));
 
-    -- PROCESO DE TICKS
+    -- PROCESO: Generaci贸n de Se帽ales Temporales (Ticks)
     process(sys_clk, RESET_N)
     begin
         if RESET_N = '0' then
@@ -163,14 +185,16 @@ begin
             tick_1s <= '0'; tick_anim <= '0'; blink_toggle <= '0';
         elsif rising_edge(sys_clk) then
             osc_div <= osc_div + 1;
+            -- Generaci贸n de tick para refresco de animaciones
             if osc_div(18 downto 0) = 0 then tick_anim <= '1'; else tick_anim <= '0'; end if;
+            -- Generaci贸n de tick de 1 segundo basado en frecuencia de 2.08MHz
             if osc_div = 2080000 then 
                 tick_1s <= '1'; osc_div <= (others => '0'); blink_toggle <= not blink_toggle;
             else tick_1s <= '0'; end if;
         end if;
     end process;
 
-    -- FSM PRINCIPAL
+    -- PROCESO: M谩quina de Estados Principal (L贸gica de Juego)
     process(sys_clk, RESET_N)
         variable calc_temp : integer;
         variable d_dec, d_uni : integer;
@@ -185,11 +209,11 @@ begin
             i_mil<=0; i_cen<=0; i_dec<=0; i_uni<=0;
             
         elsif rising_edge(sys_clk) then
-            
+            -- Temporizador de seguridad para entrada de teclado (Debounce l贸gico)
             if key_cooldown > 0 then key_cooldown <= key_cooldown - 1; end if;
 
             case state is
-                -- 1. ESPERA
+                -- ESTADO 1: Pantalla de Bienvenida y Muestra de Jackpot
                 when S_IDLE =>
                     if blink_toggle = '1' then
                         L1_Buffer <= x"202054524147414D4F4E454441532020"; 
@@ -205,7 +229,7 @@ begin
                         i_mil<=0; i_cen<=0; i_dec<=0; i_uni<=0; 
                     end if;
 
-                -- 2. APUESTA (LOGICA CORREGIDA)
+                -- ESTADO 2: Captura de Apuesta del Usuario (LOGICA CORREGIDA)
                 when S_INPUT =>
                     L1_Buffer <= x"494E475245534120415055455354413A"; 
                     L2_Buffer <= x"3E20" & I2A(i_mil) & I2A(i_cen) & I2A(i_dec) & I2A(i_uni) & x"20202020202020202020";
@@ -231,7 +255,7 @@ begin
                     
                     if SW_MODE = '0' then state <= S_IDLE; end if;
 
-                -- 3. CALCULO RETARDO
+                -- ESTADO 3: C谩lculo de Pseudo-aleatoriedad para Frenado (retardo)
                 when S_CALC_INIT =>
                     calc_temp := (apuesta + 10) / 2;
                     d_dec := calc_temp / 10;
@@ -240,7 +264,7 @@ begin
                     idx_r3 <= apuesta mod 9; 
                     delay_timer <= 0; r2_active <= false; state <= S_SPINNING;
 
-                -- 4. GIRANDO (R1, R3)
+                -- ESTADO 4: Inicio de Giro (Rodillos 1 y 3 activos)
                 when S_SPINNING =>
                     L1_Buffer <= x"202020474952414E444F2E2E2E202020";
                     L2_Buffer <= x"205B20" & I2A(val_r1) & x"20" & I2A(val_r2) & x"20" & I2A(val_r3) & x"205D202020202020";
@@ -253,7 +277,7 @@ begin
                         else r2_active <= true; state <= S_SPIN_ALL; end if;
                     end if;
 
-                -- 5. TODOS GIRAN
+                -- ESTADO 5: Giro de Todos los Rodillos (Espera de STOP)
                 when S_SPIN_ALL =>
                     L1_Buffer <= x"5052455353204120544F2053544F5021"; 
                     L2_Buffer <= x"205B20" & I2A(val_r1) & x"20" & I2A(val_r2) & x"20" & I2A(val_r3) & x"205D202020202020";
@@ -262,7 +286,7 @@ begin
                     end if;
                     if key_valid = '1' and key_code = x"A" and key_cooldown = 0 then state <= S_STOP_SEQ_1; stop_timer <= 0; end if;
 
-                -- 6,7,8. SECUENCIA PARADA
+                -- ESTADOS 6, 7, 8: Secuencia de Parada de Rodillos
                 when S_STOP_SEQ_1 =>
                     L1_Buffer <= x"20444554454E49454E444F2E2E2E2020";
                     L2_Buffer <= x"205B20" & I2A(val_r1) & x"20" & I2A(val_r2) & x"20" & I2A(val_r3) & x"205D202020202020";
@@ -281,7 +305,7 @@ begin
                     if tick_anim = '1' then idx_r2 <= (idx_r2+1) mod 9; end if;
                     if tick_1s = '1' then if stop_timer < 2 then stop_timer <= stop_timer+1; else state <= S_CHECK_WIN; end if; end if;
 
-                -- 9. CHECK WIN
+                -- ESTADO 9: L贸gica de Validaci贸n de Premio (Comparaci贸n de Valores)
                 when S_CHECK_WIN =>
                     if (val_r1 = val_r2 or val_r1 = 10 or val_r2 = 10) and 
                        (val_r2 = val_r3 or val_r2 = 10 or val_r3 = 10) and
@@ -298,7 +322,7 @@ begin
                     end if;
                     state <= S_UPDATE_POZO;
 
-                -- 10. UPDATE POZO
+                -- ESTADO 10: Actualizaci贸n de Registros Financieros (pozo)
                 when S_UPDATE_POZO =>
                     if r2_active then -- Gano
                         calc_temp := 1000 + to_integer(unsigned(alu_mult_res));
@@ -314,7 +338,7 @@ begin
                     end if;
                     state <= S_BCD_INIT;
 
-                -- 11. BCD
+                -- ESTADOS 11: Implementaci贸n de Algoritmo BCD
                 when S_BCD_INIT =>
                     if r2_active then i_mil<=0; i_cen<=0; i_dec<=0; i_uni<=0; 
                     else j_mil<=0; j_cen<=0; j_dec<=0; j_uni<=0; end if;
@@ -341,7 +365,7 @@ begin
                         state <= S_SHOW_RESULT;
                     end if;
 
-                -- 12. RESULTADO
+                -- ESTADO 12: Visualizaci贸n de Resultado Final y Re-inicializaci贸n
                 when S_SHOW_RESULT =>
                     if r2_active then
                          L1_Buffer <= x"21212047414E41535445202121202020"; 
